@@ -1,6 +1,6 @@
 # ConditionalDelegate
 
-TODO: Write a gem description
+**ConditionalDelegate** allows delegates to be conditional.
 
 ## Installation
 
@@ -18,7 +18,39 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Here is a short example with a parent and child class. Calls
+to the child object are delegated to its parent if the
+condition for that delegation is met.
+
+Simple parent class with four accessors:
+
+```ruby
+class Parent
+  attr_accessor :foo, :bar, :baz, :qux
+end
+```
+
+Child class with the same accessors as the parent, and some
+conditional delegates defined:
+
+```ruby
+class Child
+  extend ConditionalDelegate
+
+  attr_accessor :parent, :foo, :bar, :baz, :qux
+
+  conditional_delegate :foo, to: :parent, if: :empty?
+  conditional_delegate :bar, to: :parent, if: lambda { |value| value == "something" }
+
+  conditional_delegate :baz, :qux, to: :parent, if: :empty?
+end
+```
+
+The field `foo` is delegated to the parent if the value is `empty?`.
+
+The field `bar` is delegated to the parent if the given lambda returns true for the child's `foo` value.
+
+Both the fields `baz` and `qux` are delegated to the parent if the field's values are `empty?`.
 
 ## Contributing
 
