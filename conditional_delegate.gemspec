@@ -4,9 +4,9 @@ require File.expand_path('../lib/conditional_delegate/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Roel van Dijk"]
   gem.email         = ["roel@rustradio.org"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{ConditionalDelegate allows delegates to be conditional.}
+  gem.summary       = %q{ConditionalDelegate allows delegates to be conditional.}
+  gem.homepage      = "http://github.com/rdvdijk/conditional_delegate"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
