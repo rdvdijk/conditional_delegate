@@ -13,10 +13,11 @@ module ConditionalDelegate
   private
 
   def define_delegate_method(attribute, options)
-    alias_method :"_#{attribute}", :"#{attribute}"
+    own_method = :"_#{attribute}"
+    alias_method own_method, :"#{attribute}"
 
     define_method :"#{attribute}" do
-      value = send :"_#{attribute}"
+      value = send own_method
       condition = options[:if]
 
       if condition.is_a? Proc and condition.call(value)
