@@ -1,4 +1,5 @@
 # ConditionalDelegate
+[![Build Status](https://secure.travis-ci.org/rdvdijk/conditional_delegate.png)](http://travis-ci.org/rdvdijk/conditional_delegate)
 
 **ConditionalDelegate** allows delegates to be conditional.
 
