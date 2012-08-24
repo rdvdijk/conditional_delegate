@@ -47,11 +47,32 @@ class Child
 end
 ```
 
-The field `foo` is delegated to the parent if the value of `foo` in the child is `empty?`.
+The field `foo` is delegated to the parent if the value of `foo` of the child is `empty?`.
 
 The field `bar` is delegated to the parent if the given lambda returns true for the child's `foo` value.
 
 Both the fields `baz` and `qux` are delegated to the parent if the child's field values are `empty?`.
+
+```ruby
+parent = Parent.new
+parent.foo = "parent foo"
+parent.bar = "parent bar"
+parent.baz = "parent baz"
+parent.qux = "parent qux"
+
+child = Child.new
+child.foo = ""
+child.bar = "something"
+child.baz = ""
+child.qux = "child qux"
+
+child.parent = parent
+
+child.foo # => "parent foo"
+child.bar # => "parent bar"
+child.baz # => "parent baz"
+child.qux # => "child qux"
+```
 
 ## Contributing
 
