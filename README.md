@@ -47,11 +47,11 @@ class Child
 end
 ```
 
-The field `foo` is delegated to the parent if the value is `empty?`.
+The field `foo` is delegated to the parent if the value of `foo` in the child is `empty?`.
 
 The field `bar` is delegated to the parent if the given lambda returns true for the child's `foo` value.
 
-Both the fields `baz` and `qux` are delegated to the parent if the field's values are `empty?`.
+Both the fields `baz` and `qux` are delegated to the parent if the child's field values are `empty?`.
 
 ## Contributing
 
